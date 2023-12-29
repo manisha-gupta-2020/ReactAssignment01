@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- babel.min.js not needed anymore as babel installed uing npm -->
+    <!-- <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script> -->
+    <title>First REACT Page</title>
+</head>
+<body>
+    <div id="content"> </div>
+    <script src="employee.js">
+
+    // <script type="text/babel" src="/src/employee.jsx"> -- not needed anymore as babel installed using npm
+    // <script type="text/babel"> // use when JSX in index.html
+    //<script >   // use when not using babel
+    
+        // ***********   way 1 **********************
+        /*
+        ReactDOM.render(                // create the element in real DOM
+            React.createElement(        // create element in virtual DOM 
+                'div',
+                {title: 'Outer div'},
+                'Hello World'
+            ),
+            document.getElementById('content')
+        )
+        */
+        // ***********  way 2 using const variable *********** 
+        /*
+        const element = React.createElement(        // create element in virtual DOM 
+                'div',
+                {title: 'Outer div'},
+                'Hello World Again!'
+                // React.createElement('h1',null,'Hello')  //nested element
+            )
+        ReactDOM.render(element, document.getElementById('content'))
+        */
+
+        // ***********  way 3 using const variable,multiple create element and add css  *********** 
+        /*
+        const ul = React.createElement(
+                    'ul', 
+                    { style: {"color": "blue", "font-size": "24px" } },
+                    React.createElement('li', null, 'Sally Smith'),
+                    React.createElement('li', null, 'Mark Martin'),
+                    React.createElement('li', null, 'Holly Unlikely')
+                    )
+        ReactDOM.render(ul, document.getElementById('content'))
+        */
+
+        // ******  way 4 using JSX and babel compiler, const variable, and css  *******      
+        /*   
+        const element = (
+        <ul style={{'color':'blue', 'fontSize': '24px'}}>
+            <li>Sally Smith</li>
+            <li>Mark Martin</li>
+            <li>Holly Unlikely</li>
+        </ul>
+        )
+        ReactDOM.render(element, document.getElementById('content'))
+        */
+
+        // ******  way 5 using JSX and babel compiler,const variable, and css. also using variables for li elements and use in JSX*******    
+        /*
+        let sally = 'Sally Smith'
+        let mark = 'Mark Martin'
+        let holly = 'Holly Unlikely'
+        let amol = 'Amol Shookup'
+        const element = (
+            <ul style={{'color':'blue', 'fontSize': '24px'}}>
+                <li>{sally}</li>
+                <li>{mark}</li>
+                <li>{holly}</li>
+                <li>{amol.toUpperCase()}</li>
+            </ul>
+        )
+        ReactDOM.render(element, document.getElementById('content'))
+        */
+        // ******  way 6-  move react/jsx to employees.jsx file ********************
+        // add src to script tag above.
+    </script>
+</body>
+</html>
